@@ -1,0 +1,74 @@
+// Para cada aplicação, existe uma estrutura de dados que vai ser melhor do que as outras
+
+// É necessario escolher de acordo com a aplicação
+
+// Lista ligada é melhor para adicionar varios elementos, para fazer muita busca o vetor é melhor
+na lista ligada o elemento nao sabe quem é o seu anterior, apenas o seu proximo, é mais comum
+ver apenas o primeiro e o ultimo, nao é tao comum printar os numeros do meio;
+para transformar a lista em algo generico que pode receber qualquer tipo de dados, é necessário usar "<>"
+ao lado da classe "ListaLigada", pois assim, sempre que formos chamar ela na main, nos abrimos os "<>"
+e colocamos qual tipo de variavel queremos armazenar na lista, String, Int, Double, Objetos... assim
+ela nao fica limitada a um unico tipo de variavel para armazenamento, essa funcionalidade se chama "generics"
+pra transformar o codigo em um codigo generico, é necessario "tipar" tudo que precisa ter um tipo de variavel
+dessa forma o "elemento" nao vai mais ter String dentro dele, ele vai ter um tipo, qual? qualquer um que for
+definido pois agora, o codigo esta generico;
+"LinkedList<Cliente> clientes = new LinkedList<Cliente>();" essa é a biblioteca linkedlist do java, que faz a lista ligada
+que eu construi.
+
+//para adicionar elementos na lista, o vetor é melhor, porque a lista ligada cria objetos novos e faz referencia entre os
+objetos, logo, ela manipula mais a memoria, o vetor nao faz nada disso;
+para ler elementos o vetor é melhor, pois no vetor, tu tem acesso a qualquer posiçao do vetor, na lista ligada tu tem
+acesso ao primeiro elemento e precisa andar elemento por elemento até o desejado, se quiser ler 10 elementos, ela vai ler
+o 0, depois para ler o 1, precisa ir do 0 ao 1, para ler o 2, ela faz 0 ao 1 e 1 ao 2, e por ai vai, enquanto no vetor,
+ele tem acesso a todas as posiçoes diretamente, uma maneira de melhorar a performance da lista ligada é usando o iterator.
+com o iterator, ele anda a lista inteira uma unica vez enquanto tem proximo elemento, nao tem necessidade de ler a lista
+inteira de novo para ver se tem mais elementos para serem lidos.
+
+//ao diminuir a complexidade de um algoritimo, a performance melhora.
+
+//complexidade de algoritimos e notação big o
+melhor caso: quando o numero procurado é o primeiro a ser analizado, nao se usa melhor caso para julgar complexidade
+caso medio: metade do vetor, também nao é o ideal para julgar a complexidade
+pior caso: o ultimo elemento a ser analizado, é olhando pra ele que se julga a complexidade de um algoritimo(O...)
+n= tamanho do vetor.
+
+//busca linear: complexidade O(n); 10 elementos = 10 passos, 100 elementos = 100 passos, 1000 elementos = 1000 passos...
+
+//busca binaria: divide o vetor ao meio, cai na posição do meio, arredondando pra baixo em caso de vetor par
+se for menor que o numero procurado, entao ele esta para a direita, caso o contrario ele esta para a esquerda, logo,
+ele ignora o lado em que o numero nao esta, sem a necessidade de checar todas as posições do vetor; 1000000 = 500000 = 250000 =
+125000.... a busca binaria é muito mais rapida que a busca linear, porem o vetor precisa estar ordenado; assim como na linear
+o pior caso é o numero procurado estar em alguma das pontas, porem o melhor caso é o numero do meio do vetor(o pior caso
+de quase qualquer algoritimo é um numero que nao existe, pois ele verifica todo o vetor a toa)
+complexidade busca binaria: O(log n ).
+
+//Bubble sorts: algoritimo de ordenação que manda os maiores numeros para o final e os menores para o inicio, ordenando
+o vetor em ordem crescente, mas ele faz isso testando todas as posiçoes uma por uma para cada elemento do vetor, o bolha
+precisa de uma variavel auxiliar para funcionar; o pior caso do bolha é quando o maior valor esta na primeira posiçao,
+pois ele precisa varrer o vetor 2 vezes sempre;
+bubble sort: o(n^2).
+
+//insertion sort: toda vez que um novo valor for inserido no vetor, o vetor inteiro vai ser checado do final até o inicio
+para que o valor seja inserido no local exato para continuar ordenado; o pior caso é quando o vetor esta invertido;
+insertion sort: O(n^2).
+
+//selection sort: vai comparar o todos os valores do vetor com a posiçao atual, começando da primeira, e vai pegar o menor valor
+e trocar de lugar, garantindo que em cada varredura, o menor valor sempre vai pro inicio do vetor, o pior caso é quando
+o vetor esta ordenado 100% em ordem decrescente;
+selection sort: O(n^2). (enquanto o bubble sort faz n^2 trocas, o selection sort faz n trocas).
+
+//Recursividade: um metodo que chama a si mesmo, precisa de um ponto de parada, se nao ele continua infinitamente e
+estoura a memoria
+
+//heap sort: vai ordenar de maneira decrescente, vai sempre procurar o maior elemento e colocar ele no inicio, ou
+no final se for em ordem crescente, ele nao consegue fazer isso em uma passada so, entao ele garante uma posiçao
+em cada passada, e na proxima ele checa uma posiçao a menos(a posiçao que ele ja garantiu), o algoritmo so vai até a
+metade do vetor, pois com a metade do vetor ja é o suficiente para montar uma arvore completa, os ultimos elementos do vetor
+nao tem filhos, logo, nao precisamos pegar eles para fazermos o heap.
+
+//Quick sort: divide o vetor ao meio varias vezes usando um pivo, onde ele manda todos os numeros maiores que o pivo
+para a esquerda e todos os numeros maiores que o pivo para a direita, e a cada divisao ele cria um novo pivo, que normalmente
+é a metade das partes, assim ele quebra o vetor em varias partes até ele estar 100% ordenado, quanto maior o vetor, mais
+pivos, e as partes menores sao resolvidas recursivamente;
+complexidade: o(n^2) no pior caso, e no caso médio: 0(n log n)
+
