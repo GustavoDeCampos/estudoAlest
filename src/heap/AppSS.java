@@ -4,40 +4,6 @@ import java.util.ArrayList; // Importa a classe ArrayList da biblioteca Java
 
 public class AppSS { // Declara a classe pública AppSS
 
-    public static void main(String[] args) { // Método principal, ponto de entrada do programa
-        AppSS meuHeap = new AppSS(); // Cria uma nova instância da classe AppSS
-
-        // Insere elementos aleatorios de 0 a 100 no heap até atingir 20 elementos
-        for(int i = 0; i < 10; i++){
-            meuHeap.inserir((int) Math.floor(Math.random() * 100));
-        }
-
-        System.out.println("\nHeap resultante:"); // Imprime uma mensagem indicando que o heap resultante será mostrado
-        meuHeap.mostrarHeap(); // Chama o método mostrarHeap para imprimir o estado atual do heap
-
-        ArrayList<Integer> heapOrdenado = meuHeap.heapSort(); // Chama o método heapSort para ordenar o heap e armazena o resultado em heapOrdenado
-        System.out.println("\nHeap ordenado:"); // Imprime uma mensagem indicando que o heap ordenado será mostrado
-        System.out.println(heapOrdenado); // Imprime o heap ordenado
-
-        System.out.println("\nValor máximo removido: " + meuHeap.removerMax()); // Remove o valor máximo do heap e imprime o valor removido
-
-        System.out.println("\nHeap após a remoção do valor máximo:"); // Imprime uma mensagem indicando que o heap após a remoção do valor máximo será mostrado
-        meuHeap.mostrarHeap(); // Chama o método mostrarHeap para imprimir o estado atual do heap
-
-        ArrayList<Integer> heapOrdenadoSemMax = meuHeap.heapSort(); // Chama o método heapSort novamente para ordenar o heap sem o valor máximo
-        System.out.println("\nHeap ordenado sem o valor máximo:"); // Imprime uma mensagem indicando que o heap ordenado sem o valor máximo será mostrado
-        System.out.println(heapOrdenadoSemMax); // Imprime o heap ordenado sem o valor máximo
-
-        System.out.println("\nValor máximo removido: " + meuHeap.removerMax()); // Remove o valor máximo do heap e imprime o valor removido
-
-        System.out.println("\nHeap após a remoção do valor máximo:"); // Imprime uma mensagem indicando que o heap após a remoção do valor máximo será mostrado
-        meuHeap.mostrarHeap(); // Chama o método mostrarHeap para imprimir o estado atual do heap
-
-        ArrayList<Integer> heapOrdenadoSemMax1 = meuHeap.heapSort(); // Chama o método heapSort novamente para ordenar o heap sem o valor máximo
-        System.out.println("\nHeap ordenado sem o valor máximo:"); // Imprime uma mensagem indicando que o heap ordenado sem o valor máximo será mostrado
-        System.out.println(heapOrdenadoSemMax1); // Imprime o heap ordenado sem o valor máximo
-    }
-
     private ArrayList<Integer> heap; // Declara uma variável de instância do tipo ArrayList para armazenar o heap
 
     public AppSS(){ // Construtor da classe AppSS
@@ -243,5 +209,39 @@ public class AppSS { // Declara a classe pública AppSS
 
     public void mostrarHeap(){ // Método para imprimir o estado atual do heap
         System.out.println(heap); // Imprime o heap
+    }
+
+    public static void main(String[] args) { // Método principal, ponto de entrada do programa
+        AppSS meuHeap = new AppSS(); // Cria uma nova instância da classe AppSS
+
+        // Insere elementos aleatorios de 0 a 100 no heap até atingir 20 elementos
+        for(int i = 0; i < 10; i++){
+            meuHeap.inserir((int) Math.floor(Math.random() * 100));
+        }
+
+        System.out.println("\nHeap resultante:"); // Imprime uma mensagem indicando que o heap resultante será mostrado
+        meuHeap.mostrarHeap(); // Chama o método mostrarHeap para imprimir o estado atual do heap
+
+        ArrayList<Integer> heapOrdenado = meuHeap.heapSort(); // Chama o método heapSort para ordenar o heap e armazena o resultado em heapOrdenado
+        System.out.println("\nHeap ordenado:"); // Imprime uma mensagem indicando que o heap ordenado será mostrado
+        System.out.println(heapOrdenado); // Imprime o heap ordenado
+
+        System.out.println("\nValor máximo removido: " + meuHeap.removerMax()); // Remove o valor máximo do heap e imprime o valor removido
+
+        System.out.println("\nHeap após a remoção do valor máximo:"); // Imprime uma mensagem indicando que o heap após a remoção do valor máximo será mostrado
+        meuHeap.mostrarHeap(); // Chama o método mostrarHeap para imprimir o estado atual do heap
+
+        ArrayList<Integer> heapOrdenadoSemMax = meuHeap.heapSort(); // Chama o método heapSort novamente para ordenar o heap sem o valor máximo
+        System.out.println("\nHeap ordenado sem o valor máximo:"); // Imprime uma mensagem indicando que o heap ordenado sem o valor máximo será mostrado
+        System.out.println(heapOrdenadoSemMax); // Imprime o heap ordenado sem o valor máximo
+
+        System.out.println("\nValor máximo removido: " + meuHeap.removerMax()); // Remove o valor máximo do heap e imprime o valor removido
+
+        System.out.println("\nHeap após a remoção do valor máximo:"); // Imprime uma mensagem indicando que o heap após a remoção do valor máximo será mostrado
+        meuHeap.mostrarHeap(); // Chama o método mostrarHeap para imprimir o estado atual do heap
+
+        ArrayList<Integer> heapOrdenadoSemMax1 = meuHeap.heapSort(); // Chama o método heapSort novamente para ordenar o heap sem o valor máximo
+        System.out.println("\nHeap ordenado sem o valor máximo:"); // Imprime uma mensagem indicando que o heap ordenado sem o valor máximo será mostrado
+        System.out.println(heapOrdenadoSemMax1); // Imprime o heap ordenado sem o valor máximo
     }
 }
