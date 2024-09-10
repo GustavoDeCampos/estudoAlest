@@ -16,6 +16,17 @@ public class HeapClean {
         System.out.println("Inserido " + valor + ": " + heap);
     }
 
+    private void swim(int filho) {
+        if (filho > 0) {
+            int pai = (filho - 1) / 2;
+
+            if (heap.get(filho) > heap.get(pai)) {
+                troca(heap, filho, pai);
+                swim(pai);
+            }
+        }
+    }
+
     public int removerMax(){
         if (heap.isEmpty()) {
             throw new IllegalStateException("Heap vazio");
@@ -30,22 +41,6 @@ public class HeapClean {
         }
 
         return maximo;
-    }
-
-    public ArrayList<Integer> heapSort(){
-        ArrayList<Integer> copiaHeap = new ArrayList<>(heap);
-        int tamanhoHeap = copiaHeap.size();
-
-        for (int i = tamanhoHeap / 2 - 1; i >= 0; i--){
-            sink(copiaHeap, i, tamanhoHeap);
-        }
-
-        for(int i = tamanhoHeap - 1; i > 0; i--){
-            troca(copiaHeap, 0, i);
-            sink(copiaHeap, 0, i);
-        }
-
-        return copiaHeap;
     }
 
     private void sink(ArrayList<Integer> heap, int pai, int tamanho) {
@@ -66,15 +61,20 @@ public class HeapClean {
         }
     }
 
-    private void swim(int filho) {
-        if (filho > 0) {
-            int pai = (filho - 1) / 2;
+    public ArrayList<Integer> heapSort(){
+        ArrayList<Integer> copiaHeap = new ArrayList<>(heap);
+        int tamanhoHeap = copiaHeap.size();
 
-            if (heap.get(filho) > heap.get(pai)) {
-                troca(heap, filho, pai);
-                swim(pai);
-            }
+        for (int i = tamanhoHeap / 2 - 1; i >= 0; i--){
+            sink(copiaHeap, i, tamanhoHeap);
         }
+
+        for(int i = tamanhoHeap - 1; i > 0; i--){
+            troca(copiaHeap, 0, i);
+            sink(copiaHeap, 0, i);
+        }
+
+        return copiaHeap;
     }
 
     private void troca(ArrayList<Integer> heap, int a, int b){

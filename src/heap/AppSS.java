@@ -67,6 +67,90 @@ public class AppSS { // Declara a classe pública AppSS
         return copiaHeap; // Retorna o heap ordenado
     }
 
+    /*
+    Passo a Passo do Método heapSort
+    Heap Inicial
+    [4, 10, 3, 5, 1]
+    Construção do Max-Heap
+    Primeira Iteração (i = 1)
+
+    Heap: [4, 10, 3, 5, 1]
+    Elemento Atual: 10 (índice 1)
+    Filhos: 5 (índice 3) e 1 (índice 4)
+    Maior Filho: 5 (índice 3)
+    Comparação: 10 > 5 (não troca)
+    Heap Após Ajuste: [4, 10, 3, 5, 1]
+    Segunda Iteração (i = 0)
+
+    Heap: [4, 10, 3, 5, 1]
+    Elemento Atual: 4 (índice 0)
+    Filhos: 10 (índice 1) e 3 (índice 2)
+    Maior Filho: 10 (índice 1)
+    Comparação: 4 < 10 (troca)
+    Heap Após Troca: [10, 4, 3, 5, 1]
+    Ajuste Recursivo:
+    Elemento Atual: 4 (índice 1)
+    Filhos: 5 (índice 3) e 1 (índice 4)
+    Maior Filho: 5 (índice 3)
+    Comparação: 4 < 5 (troca)
+    Heap Após Troca: [10, 5, 3, 4, 1]
+    Max-Heap Construído
+    [10, 5, 3, 4, 1]
+    Ordenação do Heap
+    Primeira Iteração (i = 4)
+
+    Heap: [10, 5, 3, 4, 1]
+    Troca: 10 (índice 0) com 1 (índice 4)
+    Heap Após Troca: [1, 5, 3, 4, 10]
+    Ajuste do Heap:
+    Elemento Atual: 1 (índice 0)
+    Filhos: 5 (índice 1) e 3 (índice 2)
+    Maior Filho: 5 (índice 1)
+    Comparação: 1 < 5 (troca)
+    Heap Após Troca: [5, 1, 3, 4, 10]
+    Ajuste Recursivo:
+    Elemento Atual: 1 (índice 1)
+    Filhos: 4 (índice 3)
+    Comparação: 1 < 4 (troca)
+    Heap Após Troca: [5, 4, 3, 1, 10]
+    Segunda Iteração (i = 3)
+
+    Heap: [5, 4, 3, 1, 10]
+    Troca: 5 (índice 0) com 1 (índice 3)
+    Heap Após Troca: [1, 4, 3, 5, 10]
+    Ajuste do Heap:
+    Elemento Atual: 1 (índice 0)
+    Filhos: 4 (índice 1) e 3 (índice 2)
+    Maior Filho: 4 (índice 1)
+    Comparação: 1 < 4 (troca)
+    Heap Após Troca: [4, 1, 3, 5, 10]
+    Ajuste Recursivo:
+    Elemento Atual: 1 (índice 1)
+    Filhos: (nenhum)
+    Heap Após Ajuste: [4, 1, 3, 5, 10]
+    Terceira Iteração (i = 2)
+
+    Heap: [4, 1, 3, 5, 10]
+    Troca: 4 (índice 0) com 3 (índice 2)
+    Heap Após Troca: [3, 1, 4, 5, 10]
+    Ajuste do Heap:
+    Elemento Atual: 3 (índice 0)
+    Filhos: 1 (índice 1)
+    Comparação: 3 > 1 (não troca)
+    Heap Após Ajuste: [3, 1, 4, 5, 10]
+    Quarta Iteração (i = 1)
+
+    Heap: [3, 1, 4, 5, 10]
+    Troca: 3 (índice 0) com 1 (índice 1)
+    Heap Após Troca: [1, 3, 4, 5, 10]
+    Ajuste do Heap:
+    Elemento Atual: 1 (índice 0)
+    Filhos: (nenhum)
+    Heap Após Ajuste: [1, 3, 4, 5, 10]
+    Heap Ordenado
+    [1, 3, 4, 5, 10]
+    */
+
     private void sink(ArrayList<Integer> heap, int pai, int tamanho) { // Método para ajustar o heap após a remoção de um elemento
         // Calcula o índice do filho esquerdo do nó pai
         int esquerda = (2 * pai) + 1;
@@ -126,7 +210,7 @@ public class AppSS { // Declara a classe pública AppSS
     Fim do Método: O heap está ajustado.
     Resultado Final
     Heap Final: [20, 15, 10, 17, 8]
-     */
+    */
 
     private void swim(int filho) { // Método para ajustar o heap após a inserção de um novo elemento
         // O método `swim` é usado para ajustar a posição de um novo elemento no heap para cima (subir) até que a propriedade do max-heap seja restaurada.
@@ -183,7 +267,7 @@ public class AppSS { // Declara a classe pública AppSS
     Fim do Método: O heap está ajustado.
     Resultado Final
     Heap Final: [25, 15, 20, 17, 8, 10]
-     */
+    */
 
     private void troca(ArrayList<Integer> heap, int a, int b){ // Método para trocar dois elementos no heap
         // O método `troca` é usado para trocar os valores de dois elementos no heap.
